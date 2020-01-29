@@ -1,4 +1,5 @@
 # Fish settings 
+#
 set fish_color_command 2196f3
 set fish_greeting (date)
 set fish_color_cwd green
@@ -18,16 +19,25 @@ function reload
 end
 
 # aliases
-alias g=git
 alias desk='cd ~/Desktop'
 alias docs='cd ~/Documents'
 alias down='cd ~/Downloads'
-alias curr='cd ~/Documents/Current/code'
-alias code='cd ~/Documents/Coding'
+alias gith='cd ~/Github'
+alias note='cd ~/Github/lab-notebook'
+#alias code="open -a 'Visual Studio Code'"
+alias curr='cd ~/Github/fluffy-guide'
 
 # python
 alias python='python3'
-alias pip_update='pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U'
+alias act='source venv/bin/activate.fish'
+set -U fish_user_paths "$HOME/conda/bin" $fish_user_paths # only once at startup
+
+# conda
+alias cona='conda activate'
+alias cond='conda deactivate'
+
+
+# docker
 
 # git config
 function gitprivate -d "Apply private git configs"
@@ -40,7 +50,6 @@ function gitprivate -d "Apply private git configs"
     git config user.signingkey $argv[1]
 end
 
-
 # options
 set __fish_git_prompt_show_informative_status
 set __fish_git_prompt_showcolorhints
@@ -52,3 +61,12 @@ set magenta (set_color magenta)
 set normal (set_color normal)
 set red (set_color red)
 set yellow (set_color yellow)
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /Users/beichenberger/conda/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
