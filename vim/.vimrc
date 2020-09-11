@@ -1,3 +1,10 @@
+" remapping
+inoremap <C-h> <C-W>h
+inoremap <C-j> <C-W>j
+inoremap <C-k> <C-W>k
+inoremap <C-l> <C-W>l
+noremap <F9> :echo system('python "'. expand('%'). '"')<cr>
+
 " vundle
 syntax on
 set nocompatible
@@ -9,7 +16,7 @@ filetype plugin indent on
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ajh17/VimCompletesMe'
-Plugin 'arcticicestudio/nord-vim'
+Plugin 'joshdick/onedark.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'itchyny/lightline.vim'
 Plugin 'jceb/vim-orgmode'
@@ -25,7 +32,7 @@ Plugin 'vim-latex/vim-latex'
 call vundle#end()
 
 " colorschemes
-colorscheme nord
+colorscheme onedark
 
 " set options
 set backspace=indent,eol,start  "Allow backspace in insert mode
@@ -43,11 +50,12 @@ set ignorecase  "Ignore case for searches
 set incsearch  "Highlight dynamically as pattern is typed
 set laststatus=2  "Always show status line
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_  "Show “invisible” characters
-set list  "Show whitespaces as characters
+"set list  "Show whitespaces as characters
 set mouse=a  "Enable mouse in all modes
 set noerrorbells  "Disable error bells
 set nostartofline  "Don’t reset cursor to start of line when moving around.
-set relativenumber  "Relative line number
+set number relativenumber  "Relative line number"
+set nu rnu
 set ruler  "Show the cursor position
 set secure  "Prevents potentially dangerous command excecution in shell
 set shortmess=atI  "Don’t show the intro message when starting Vim
@@ -59,10 +67,6 @@ set title  "Show the filename in the window titlebar
 set ttyfast  "Optimize for fast terminal connections
 set ttyfast  "Speed up scrolling speed
 set wildmenu  "Enhance command-line completion
+set cursorline "Highlight current line:highlight CursorLine ctermbg=LightBlue
 
-" remapping
-map <C-h> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-l> <C-W>l
-noremap <F9> :echo system('python "'. expand('%'). '"')<cr>
+
