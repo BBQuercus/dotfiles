@@ -69,4 +69,3 @@ set ttyfast  "Speed up scrolling speed
 set wildmenu  "Enhance command-line completion
 set cursorline "Highlight current line:highlight CursorLine ctermbg=LightBlue
 
-
