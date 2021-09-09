@@ -9,7 +9,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/beichenberger/.oh-my-zsh"
+export ZSH="/home_fmi/01/eichbast/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -106,12 +106,12 @@ export LANG=en_US.UTF-8
 
 # Aliases
 # Movement
-alias dt="cd ~/Desktop"
-alias do="cd ~/Documents"
-alias dl="cd ~/Downloads"
-alias hub="cd ~/Github"
-alias note="cd ~/Github/lab-notebook"
-alias curr="cd ~/Github/deepBlink"
+#alias dt="cd ~/Desktop"
+#alias do="cd ~/Documents"
+#alias dl="cd ~/Downloads"
+#alias hub="cd ~/Github"
+#alias note="cd ~/Github/lab-notebook"
+#alias curr="cd ~/Github/deepBlink"
 alias up="cd ../"
 
 # Commands
@@ -123,7 +123,7 @@ alias mv="mv -i"
 alias o="open ."
 alias sl=ls
 alias v="vim"
-alias vpn="open /Applications/Pulse\ Secure.app/Contents/Plugins/JamUI/PulseTray.app"
+#alias vpn="open /Applications/Pulse\ Secure.app/Contents/Plugins/JamUI/PulseTray.app"
 
 # Git
 alias g="git"
@@ -143,27 +143,57 @@ alias gremotes="git remote --verbose"
 alias gs="git status -s"
 
 # Python / conda
+alias tboard='tensorboard --logdir ./ --port=16007'
+alias jup='jupyter notebook --no-browser --port=8889'
+alias gpu='watch -n 1 nvidia-smi'
 alias python="python3"
-alias act="source venv/bin/activate.fish"
+alias act="source venv/bin/activate"
 alias cona="conda activate"
 alias cond="conda deactivate"
-unalias ipython  # python plugin sets weird alias
+#unalias ipython  # python plugin sets weird alias
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/beichenberger/conda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/beichenberger/conda/etc/profile.d/conda.sh" ]; then
-        . "/Users/beichenberger/conda/etc/profile.d/conda.sh"
+if [[ -d "/work2/gchao/eichbast/miniconda"  ]]; then
+    __conda_setup="$('/work2/gchao/eichbast/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
     else
-        export PATH="/Users/beichenberger/conda/bin:$PATH"
+        if [ -f "/work2/gchao/eichbast/miniconda/etc/profile.d/conda.sh" ]; then
+            . "/work2/gchao/eichbast/miniconda/etc/profile.d/conda.sh"
+        else
+            export PATH="/work2/gchao/eichbast/miniconda/bin:$PATH"
+        fi
     fi
+    unset __conda_setup
+else
+    __conda_setup="$('/tungstenfs/scratch/gchao/eichbast/miniconda/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/tungstenfs/scratch/gchao/eichbast/miniconda/etc/profile.d/conda.sh" ]; then
+            . "/tungstenfs/scratch/gchao/eichbast/miniconda/etc/profile.d/conda.sh"
+        else
+            export PATH="/tungstenfs/scratch/gchao/eichbast/miniconda/bin:$PATH"
+        fi
+    fi
+    unset __conda_setup
 fi
-unset __conda_setup
 # <<< conda initialize <<<
 
+# Run setup to limit resource usage
+NCORES=16
+export OMP_NUM_THREADS=$NCORES
+export OPANBLAS_NUM_THREADS=$NCORES
+export MKL_NUM_THREADS=$NCORES
+export VECLIB_MAXIMUM_THREADS=$NCORES
+export NUMEXPR_NUM_THREADS=$NCORES
+
+alias tmp="cd /tungstenfs/scratch/shared/gchao_ggiorget/tmp/"
+alias ppi="cd /tungstenfs/scratch/shared/gchao_gdiss_gzenke/ppi-preliminary/"
+alias group="cd /tungstenfs/groups/gchao/"
+alias scratch="cd /tungstenfs/scratch/gchao/"
