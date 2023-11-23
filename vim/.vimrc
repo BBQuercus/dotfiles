@@ -3,7 +3,11 @@ inoremap <C-h> <C-W>h
 inoremap <C-j> <C-W>j
 inoremap <C-k> <C-W>k
 inoremap <C-l> <C-W>l
-noremap <F9> :echo system('python "'. expand('%'). '"')<cr>
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+vnoremap <leader>p "_dP
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " vundle
 syntax on
@@ -18,13 +22,10 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'ajh17/VimCompletesMe'
 Plugin 'joshdick/onedark.vim'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'itchyny/lightline.vim'
-Plugin 'jceb/vim-orgmode'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'scrooloose/nerdtree'
-Plugin 'terryma/vim-multiple-cursors'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
@@ -50,7 +51,6 @@ set ignorecase  "Ignore case for searches
 set incsearch  "Highlight dynamically as pattern is typed
 set laststatus=2  "Always show status line
 set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_  "Show “invisible” characters
-"set list  "Show whitespaces as characters
 set mouse=a  "Enable mouse in all modes
 set noerrorbells  "Disable error bells
 set nostartofline  "Don’t reset cursor to start of line when moving around.
@@ -68,4 +68,3 @@ set ttyfast  "Optimize for fast terminal connections
 set ttyfast  "Speed up scrolling speed
 set wildmenu  "Enhance command-line completion
 set cursorline "Highlight current line:highlight CursorLine ctermbg=LightBlue
-
