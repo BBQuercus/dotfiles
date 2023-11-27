@@ -19,7 +19,6 @@ filetype plugin indent on
 " vundles
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'ajh17/VimCompletesMe'
 Plugin 'joshdick/onedark.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'jiangmiao/auto-pairs'

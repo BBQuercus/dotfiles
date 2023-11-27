@@ -65,7 +65,7 @@ defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowPathbar -bool true
 
 # display full POSIX path as Finder window title
-defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+defaults write com.apple.finder _FXShowPosixPathInTitle -bool false
 
 # disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
@@ -82,8 +82,8 @@ chflags nohidden ~/Library
 
 # DOCK / MISSION CONTROL
 
-# set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+# set the icon size of Dock items to 64 pixels
+defaults write com.apple.dock tilesize -int 64
 
 # change minimize/maximize window effect
 defaults write com.apple.dock mineffect -string "scale"
@@ -205,7 +205,7 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
 # install the chalk theme for Terminal
-open "${HOME}/macos/Chalk.terminal"
+open "${HOME}/One Dark.terminal"
 
 # MAC APP STORE
 
@@ -223,39 +223,6 @@ defaults write com.apple.SoftwareUpdate CriticalUpdateInstall -int 1
 
 # turn on app auto-update
 defaults write com.apple.commerce AutoUpdate -bool true
-
-# TRANSMISSION
-
-# use `~/Downloads/Torrents` to store incomplete downloads
-defaults write org.m0k.transmission UseIncompleteDownloadFolder -bool true
-defaults write org.m0k.transmission IncompleteDownloadFolder -string "${HOME}/Downloads/Torrents"
-
-# use `~/Downloads` to store completed downloads
-defaults write org.m0k.transmission DownloadLocationConstant -bool true
-
-# don’t prompt for confirmation before downloading
-defaults write org.m0k.transmission DownloadAsk -bool false
-defaults write org.m0k.transmission MagnetOpenAsk -bool false
-
-# don’t prompt for confirmation before removing non-downloading active transfers
-defaults write org.m0k.transmission CheckRemoveDownloading -bool true
-
-# trash original torrent files
-defaults write org.m0k.transmission DeleteOriginalTorrent -bool true
-
-# hide the donate message
-defaults write org.m0k.transmission WarningDonate -bool false
-# hide the legal disclaimer
-defaults write org.m0k.transmission WarningLegal -bool false
-
-# IP block list.
-# Source: https://giuliomac.wordpress.com/2014/02/19/best-blocklist-for-transmission/
-defaults write org.m0k.transmission BlocklistNew -bool true
-defaults write org.m0k.transmission BlocklistURL -string "http://john.bitsurge.net/public/biglist.p2p.gz"
-defaults write org.m0k.transmission BlocklistAutoUpdate -bool true
-
-# randomize port on launch
-defaults write org.m0k.transmission RandomPort -bool true
 
 # KILL AFFECTED APPLICATIONS
 
