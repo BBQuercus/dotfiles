@@ -1,0 +1,7 @@
+.gitconfig
+.vimrc_backup
+LICENSE
+\.git
+^/.*\.md
+^/.*\.sh
+^/.*\.terminal

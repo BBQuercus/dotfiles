@@ -204,9 +204,6 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 # enable Secure Keyboard Entry in Terminal https://security.stackexchange.com/a/47786/8918
 defaults write com.apple.terminal SecureKeyboardEntry -bool true
 
-# install the chalk theme for Terminal
-open "${HOME}/One Dark.terminal"
-
 # MAC APP STORE
 
 # enable the automatic update check

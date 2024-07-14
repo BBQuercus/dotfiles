@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 echo 'PATH="/opt/homebrew/bin:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
-
-# make sure we're using the latest Homebrew & update
 brew update
 brew upgrade
 
@@ -32,6 +30,7 @@ brew install rename
 brew install ripgrep
 brew install rsync
 brew install speedtest
+brew install stow
 brew install tldr
 
 # MacOS casks

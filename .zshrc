@@ -63,6 +63,7 @@ alias mv="mv -i"
 alias o="open ."
 alias sl=ls
 alias wget="wget -c"
+alias vim="nvim"
 
 # Git
 alias g="git"
@@ -71,6 +72,8 @@ alias galiases="git config --get-regexp alias"
 alias gammend="git amend = commit --amend --reuse-message=HEAD"
 alias gb="git branch"
 alias gbs="git branch --all"
+alias gbd="git branch | grep -v 'main' | xargs git branch -D"
+alias gbrd="git branch -r | grep -v 'origin/main' | xargs git branch -r -D"
 alias gc="git commit"
 alias gca="git add -A && git commit -av"
 alias gco="git checkout"
@@ -100,3 +103,11 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# pnpm
+export PNPM_HOME="/Users/beichenberger/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"

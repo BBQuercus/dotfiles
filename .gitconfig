@@ -2,8 +2,8 @@
 helper = osxkeychain
 
 [user]
-name = BBQuercus
-email = bastian@eichenbergers.ch
+	name = bbquercus
+	email = bastian@eichenbergers.ch
 
 [apply]
 # Detect whitespace errors when applying a patch
@@ -87,3 +87,14 @@ insteadOf = "gist:"
 
 [init]
 defaultBranch = main
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
