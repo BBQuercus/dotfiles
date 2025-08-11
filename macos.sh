@@ -35,8 +35,8 @@ defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 # automatically quit printer app once the print jobs complete
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2>/dev/null
+# disable Notification Center and remove the menu bar icon (deprecated in newer macOS)
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2>/dev/null
 
 # OTHER
 
@@ -141,7 +141,7 @@ defaults write com.apple.dock show-recents -bool false
 # 12: Notification Center
 # 13: Lock Screen
 
-# Top left screen corner → Mission Control
+# Top left screen corner → Put display to sleep
 defaults write com.apple.dock wvous-tl-corner -int 10
 defaults write com.apple.dock wvous-tl-modifier -int 0
 # Top right screen corner → none

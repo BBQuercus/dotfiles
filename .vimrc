@@ -10,11 +10,9 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 " vundle
-syntax on
 set nocompatible
-set rtp+=~/.vim/bundle/Vundle.vim
 filetype off
-filetype plugin indent on
+set rtp+=~/.vim/bundle/Vundle.vim
 
 " vundles
 call vundle#begin()
@@ -31,8 +29,11 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-latex/vim-latex'
 call vundle#end()
 
+filetype plugin indent on
+syntax on
+
 " colorschemes
-colorscheme onedark
+silent! colorscheme onedark
 
 " set options
 set backspace=indent,eol,start  "Allow backspace in insert mode

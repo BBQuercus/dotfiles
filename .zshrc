@@ -1,3 +1,13 @@
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# UV
+export PATH="$HOME/.local/bin:$PATH"
+alias python="$(uv python find)"
+alias pip="python -m pip"
+
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:/opt/homebrew/bin:$PATH
 
@@ -8,7 +18,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -37,6 +47,7 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
+  you-should-use
   vi-mode
   python
 )
@@ -84,30 +95,12 @@ alias gr="git remote"
 alias gremotes="git remote --verbose"
 alias gs="git status -s"
 
-# Python / conda
-alias cona="conda activate"
-alias cond="conda deactivate"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/beichenberger/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/beichenberger/.miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/Users/beichenberger/.miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/beichenberger/.miniconda3/bin:$PATH"
-    fi
+# Enable Powerlevel10k instant prompt
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-unset __conda_setup
-# <<< conda initialize <<<
 
-# pnpm
-export PNPM_HOME="/Users/beichenberger/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
